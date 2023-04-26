@@ -1,8 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import style from '../styles/educators.module.css'
-const FindEducators = ({ data }) => {
-    console.log(data.content.educatorList)
+const Educators = ({ data }) => {
     return (
         <div className={`${style.bg} flex flex-col `}>
             <div className='flex justify-evenly p-10'>
@@ -20,6 +20,8 @@ const FindEducators = ({ data }) => {
             <div className='flex flex-wrap justify-center'>
                 {
                     data.content.educatorList.map((res) => {
+                        const slug = res.name.toLowerCase().replace(/\s+/g, '-').slice(0);
+                        console.log(slug);
                         return (
                             <div key={res.id} className='m-10'>
                                 <Image
@@ -32,9 +34,10 @@ const FindEducators = ({ data }) => {
                                 />
                                 <h1 className='text-black font-semibold tracking-widest my-2'>{res.name}</h1>
                                 <span className='text-gray-600 tracking-widest'>{res.desc}</span> <br />
-                                <button className='bg-black w-full h-10 my-5 tracking-widest'>VIEW COURSES</button>
+                                <Link href={`/educator/${slug}`}>
+                                    <button className='bg-black w-full h-10 my-5 tracking-widest'>VIEW COURSES</button>
+                                </Link>
                             </div>
-
                         )
                     })
                 }
@@ -43,4 +46,4 @@ const FindEducators = ({ data }) => {
     )
 }
 
-export default FindEducators
+export default Educators

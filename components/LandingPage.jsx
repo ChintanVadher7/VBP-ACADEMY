@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 import style from '../styles/landingPage.module.css'
 const LandingPage = ({ data }) => {
-  console.log(data.content)
   return (
     <div className='relative'>
       <div className='relative'>
@@ -25,7 +24,6 @@ const LandingPage = ({ data }) => {
         <div className='flex m-4 mb-10'>
           {
             data.content.subdata.map((data) => {
-              console.log(data.logo.filename);
               return (
                 <div key={data.id} className='flex flex-col items-center mx-16 px-5'>
                   <Image

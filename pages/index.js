@@ -1,15 +1,15 @@
 import React from 'react'
 import StoryblokClient from 'storyblok-js-client'
 import LandingPage from '@/components/LandingPage';
-import FindEducators from '@/components/Educators';
+import Educators from '@/components/Educators';
 
 
 const index = (props) => {
-  console.log(props);
+console.log(props)
   return (
     <div>
-      <LandingPage data={props.story[1]} />
-      <FindEducators data={props.story[0]} />
+      <LandingPage data={props.story[4]} />
+      <Educators data={props.story[3]} />
     </div>
   )
 }
@@ -26,7 +26,6 @@ export async function getStaticProps() {
   const data = await client.getAll('cdn/stories', {
     version: 'published', // Use the latest version of the content
   })
-
   // Return the data as props
   return {
     props: {
