@@ -1,12 +1,15 @@
 import React from 'react'
 import StoryblokClient from 'storyblok-js-client'
 import LandingPage from '@/components/LandingPage';
+import FindEducators from '@/components/Educators';
 
 
 const index = (props) => {
+  console.log(props);
   return (
     <div>
-      <LandingPage data={props.story[0]} />
+      <LandingPage data={props.story[1]} />
+      <FindEducators data={props.story[0]} />
     </div>
   )
 }

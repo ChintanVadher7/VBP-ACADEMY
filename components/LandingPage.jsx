@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-
+import style from '../styles/landingPage.module.css'
 const LandingPage = ({ data }) => {
-  console.log(data)
+  console.log(data.content)
   return (
     <div className='relative'>
       <div className='relative'>
@@ -20,8 +20,28 @@ const LandingPage = ({ data }) => {
           <span className=' tracking-widest text-sm text-gray-200'>{data.content.desc}</span>
         </div>
       </div>
-      <div className='bg-white flex justify-center '>
+      <div className='bg-white flex justify-center flex-col items-center '>
         <h1 className='text-black font-semibold tracking-widest text-xl m-8'>{data.content.title2}</h1>
+        <div className='flex m-4 mb-10'>
+          {
+            data.content.subdata.map((data) => {
+              console.log(data.logo.filename);
+              return (
+                <div key={data.id} className='flex flex-col items-center mx-16 px-5'>
+                  <Image
+                    src={data.logo.filename}
+                    height={50}
+                    width={100}
+                    alt='icon'
+                    className={`${style.svg} mb-4`}
+                  />
+                  <h3 className='text-gray-900 text-xs leading-5  tracking-widest'>{data.text}</h3>
+                  <h3 className='text-gray-900 text-xs leading-5  tracking-widest'>{data.text2}</h3>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )
