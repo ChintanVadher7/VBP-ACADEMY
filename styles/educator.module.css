@@ -1,0 +1,23 @@
+.styles {
+    letter-spacing: 8px;
+}
+
+.spacing {
+    letter-spacing: 3px;
+}
+
+.icon {
+    filter: grayscale(100%) brightness(1000%);
+}
+
+.font {
+    font-size: 10px;
+}
+
+.spacing2{
+    font-size: 21px;
+}
+
+.psize{
+    font-size: 12px;
+}

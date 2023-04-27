@@ -21,7 +21,6 @@ const Educators = ({ data }) => {
                 {
                     data.content.educatorList.map((res) => {
                         const slug = res.name.toLowerCase().replace(/\s+/g, '-').slice(0);
-                        console.log(slug);
                         return (
                             <div key={res.id} className='m-10'>
                                 <Image
@@ -34,7 +33,7 @@ const Educators = ({ data }) => {
                                 />
                                 <h1 className='text-black font-semibold tracking-widest my-2'>{res.name}</h1>
                                 <span className='text-gray-600 tracking-widest'>{res.desc}</span> <br />
-                                <Link href={`/educator/${slug}`}>
+                                <Link href={`educator/${slug}`}>
                                     <button className='bg-black w-full h-10 my-5 tracking-widest'>VIEW COURSES</button>
                                 </Link>
                             </div>

@@ -1,0 +1,14 @@
+.height {
+    height: 450px;
+    width: 800px;
+}
+
+.absolute1 {
+    top: 50%;
+    left: 0;
+}
+
+.absolute2 {
+    top: 50%;
+    right: 0;
+}
