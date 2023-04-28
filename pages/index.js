@@ -8,8 +8,8 @@ import Calender from '@/components/Calender';
 const index = (props) => {
   return (
     <div>
-      <LandingPage data={props.story[5]} />
-      <Educators data={props.story[2]} />
+      <LandingPage data={props.data2.data.story} />
+      <Educators data={props.story.data.story} />
       <Calender />
     </div>
   )
@@ -24,18 +24,17 @@ export async function getStaticProps() {
   })
 
   // Fetch the data from Storyblok
-  const data = await client.getAll('cdn/stories', {
+  const data = await client.get('cdn/stories/educators', {
     version: 'published', // Use the latest version of the content
   })
-
-  // const data2 = await client.getAll('cdn/stories/events', {
-  //   version: 'published', // Use the latest version of the content
-  // })
+  const data2 = await client.get('cdn/stories/landing-page', {
+    version: 'published', // Use the latest version of the content
+  })
 
   // Return the data as props
   return {
     props: {
-      story: data,
+      story: data, data2
     },
   }
 }

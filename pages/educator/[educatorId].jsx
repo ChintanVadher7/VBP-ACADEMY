@@ -8,7 +8,6 @@ import style from '../../styles/educator.module.css'
 import moment from 'moment/moment'
 const Educator = (props) => {
     const data = props.story
-    console.log(data);
     const string = data.content.title.split(" ")[0].charAt(0).toUpperCase() + data.content.title.split(" ")[0].slice(1).toLowerCase();
     const slides = [
         data.content.slide1.filename,

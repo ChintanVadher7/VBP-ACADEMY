@@ -47,10 +47,8 @@ const Calender = () => {
                 allDay: true
             }));
             setEvents(formattedData);
-
         }
         fetch()
-
     }, [])
 
 
@@ -112,19 +110,11 @@ const Calender = () => {
                     initialView="dayGridMonth"
                     backgroundColor="red"
                     themeSystem='bootstrap5'
-                    // events={[
-                    //     { title: '@chellys_nails', date: '2023-03-11' },
-                    //     { title: '@chellys_nails', date: '2023-03-12' },
-                    //     { title: '@sabrina_ils', date: '2023-03-25' },
-                    //     { title: '@sabrina_ils', date: '2023-03-26' },
-                    //     { title: '@dazzlenlearn', date: '2023-03-27' },
-                    // ]}
                     events={events}
-                    dayCellDidMount={(info) => { // add dayCellDidMount callback function
+                    dayCellDidMount={(info) => { 
                         const cell = info.el;
                         cell.style.borderColor = "white";
-                        cell.style.backgroundColor = "#F5F5F5"; // set border color here
-                        // cell.style.backgroundColor = "red"; // set border color here
+                        cell.style.backgroundColor = "#F5F5F5";
                         cell.style.borderWidth = "5px"
                         cell.style.height = '50px'
                     }}
@@ -141,7 +131,6 @@ const Calender = () => {
                     </div>
                     <div>
                         <div>
-
                         </div>
                     </div>
                 </div>
