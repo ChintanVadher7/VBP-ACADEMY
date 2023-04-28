@@ -8,9 +8,9 @@ import Calender from '@/components/Calender';
 const index = (props) => {
   return (
     <div>
-      <LandingPage data={props.story[4]} />
+      <LandingPage data={props.story[5]} />
       <Educators data={props.story[2]} />
-      <Calender/>
+      <Calender />
     </div>
   )
 }
@@ -27,6 +27,11 @@ export async function getStaticProps() {
   const data = await client.getAll('cdn/stories', {
     version: 'published', // Use the latest version of the content
   })
+
+  // const data2 = await client.getAll('cdn/stories/events', {
+  //   version: 'published', // Use the latest version of the content
+  // })
+
   // Return the data as props
   return {
     props: {

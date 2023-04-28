@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import Image from 'next/image'
@@ -6,15 +6,15 @@ import svg from '../public/Icon_Profile.svg'
 import interactionPlugin from '@fullcalendar/interaction';
 import location from '../public/Icon_Location.svg'
 import style from '../styles/calender.module.css'
+import StoryblokClient from 'storyblok-js-client'
+
 const Calender = () => {
+    const [events, setEvents] = useState([]);
+
     const [selectedOption, setSelectedOption] = useState('option2');
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
-    const handleButtonClick = () => {
-        console.log('Button clicked!');
-    };
-
     const eventContent = (eventInfo) => {
         return (
             <div className='bg-black flex text-white rounded-e-full items-center'>
@@ -29,6 +29,31 @@ const Calender = () => {
             </div>
         );
     };
+
+    useEffect(() => {
+        const fetch = async () => {
+            const client = new StoryblokClient({
+                accessToken: 'QkZRIJv3MRuojAxz4rMUBwtt',
+            })
+
+            const data = await client.get('cdn/stories', {
+                version: 'published',
+                starts_with: 'events/',
+            })
+            const value = data.data.stories
+            const formattedData = value.map(event => ({
+                title: event.content.educator,
+                start: event.content.date,
+                allDay: true
+            }));
+            setEvents(formattedData);
+
+        }
+        fetch()
+
+    }, [])
+
+
 
     return (
         <div className='bg-white text-black' >
@@ -87,13 +112,14 @@ const Calender = () => {
                     initialView="dayGridMonth"
                     backgroundColor="red"
                     themeSystem='bootstrap5'
-                    events={[
-                        { title: '@chellys_nails', date: '2023-03-11' },
-                        { title: '@chellys_nails', date: '2023-03-12' },
-                        { title: '@sabrina_ils', date: '2023-03-25' },
-                        { title: '@sabrina_ils', date: '2023-03-26' },
-                        { title: '@dazzlenlearn', date: '2023-03-27' },
-                    ]}
+                    // events={[
+                    //     { title: '@chellys_nails', date: '2023-03-11' },
+                    //     { title: '@chellys_nails', date: '2023-03-12' },
+                    //     { title: '@sabrina_ils', date: '2023-03-25' },
+                    //     { title: '@sabrina_ils', date: '2023-03-26' },
+                    //     { title: '@dazzlenlearn', date: '2023-03-27' },
+                    // ]}
+                    events={events}
                     dayCellDidMount={(info) => { // add dayCellDidMount callback function
                         const cell = info.el;
                         cell.style.borderColor = "white";
@@ -108,8 +134,17 @@ const Calender = () => {
                         center: 'title',
                         right: 'next'
                     }}
-
                 />
+                <div>
+                    <div>
+                        <h1>THE NEXT VBP ACADEMY COURSE</h1>
+                    </div>
+                    <div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
