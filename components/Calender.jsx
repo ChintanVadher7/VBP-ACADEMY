@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import Image from 'next/image'
@@ -7,7 +7,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 import location from '../public/Icon_Location.svg'
 import style from '../styles/calender.module.css'
 const Calender = () => {
-
+    const [selectedOption, setSelectedOption] = useState('option2');
+    const handleSelectChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
     const handleButtonClick = () => {
         console.log('Button clicked!');
     };
@@ -40,7 +43,7 @@ const Calender = () => {
                             alt='icon'
                             className={`m-2 ${style.filter}`}
                         />
-                        <select className='text-black border border-black px-2' >
+                        <select className='text-black border border-black px-2' value={selectedOption} onChange={handleSelectChange}>
                             <option value="" disabled selected>
                                 Filter by Location
                             </option>
@@ -57,7 +60,7 @@ const Calender = () => {
                             alt='icon'
                             className={`m-2 ${style.filter}`}
                         />
-                        <select className='text-black border border-black px-2'>
+                        <select className='text-black border border-black px-2' value={selectedOption} onChange={handleSelectChange}>
                             <option value="" disabled selected>
                                 Filter by Educator
                             </option>

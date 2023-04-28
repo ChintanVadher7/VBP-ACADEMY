@@ -9,10 +9,10 @@ const LandingPage = ({ data }) => {
           <Image
             src={data.content.bg_img1.filename}
             alt="My Image"
-            height={100}
-            width={100}
-            layout="responsive"
+            height={545}
+            width={1920}
             className={`${style.img}`}
+            priority={true}
           />
         </div>
         <div className='absolute top-52 left-60 items-center flex flex-col'>
