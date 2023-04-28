@@ -1,3 +1,9 @@
 .svg {
+    height: auto;
+    width: auto;
     filter: invert(97%) sepia(18%) saturate(5122%) hue-rotate(293deg) brightness(124%) contrast(70%);
+}
+.img{
+    height: auto;
+    width: auto;
 }

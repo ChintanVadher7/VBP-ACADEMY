@@ -94,8 +94,8 @@ const Educator = (props) => {
                                                 </div>
                                             </div>
                                             <div className='flex flex-col'>
-                                                <button className='bg-pink-200 text-black px-4 py-2 font-semibold m-2'>JOIN THE COURSE</button>
-                                                <button className='bg-black text-white border border-white px-4 py-2 font-semibold m-2'>JOIN THE COURSE</button>
+                                                <button className={`bg-pink-200 text-black px-4 py-2 font-semibold m-2  ${style.spacing}`}>JOIN THIS COURSE</button>
+                                                <button className={`bg-black text-white border border-white px-4 py-2 font-semibold m-2  ${style.spacing}`}>MORE INFO</button>
                                             </div>
                                         </div>
                                     )

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import StoryblokClient from 'storyblok-js-client';
-
+import style from '../styles/header.module.css'
 const storyblok = new StoryblokClient({
     accessToken: 'QkZRIJv3MRuojAxz4rMUBwtt',
 });
@@ -32,7 +32,7 @@ const Header = () => {
                         )
                     }
                 </div>
-                <ul className='flex'>
+                <ul className='flex flex-wrap '>
                     <Link href={'/'}> <li className='px-10'>NEW</li></Link>
                     <Link href={'/'}> <li className='px-10'>SALE</li></Link>
                     <Link href={'/'}> <li className='px-10'>ACRYLIC</li></Link>
@@ -48,7 +48,7 @@ const Header = () => {
                         header != null && (
                             <Link href={'/'}>
                                 <Image
-                                    className='invert m-2'
+                                    className={`invert m-2 ${style.img}`}
                                     src={header.LOGO1.filename}
                                     height={15}
                                     width={20}
@@ -61,7 +61,7 @@ const Header = () => {
                         header != null && (
                             <Link href={'/'}>
                                 <Image
-                                    className='invert m-2'
+                                    className={`invert m-2 ${style.img}`}
                                     src={header.LOGO2.filename}
                                     height={15}
                                     width={20}
@@ -74,7 +74,7 @@ const Header = () => {
                         header != null && (
                             <Link href={'/'}>
                                 <Image
-                                    className='invert m-2'
+                                    className={`invert m-2 ${style.img}`}
                                     src={header.LOGO3.filename}
                                     height={15}
                                     width={20}

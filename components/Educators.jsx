@@ -13,6 +13,7 @@ const Educators = ({ data }) => {
                         height={10}
                         width={20}
                         alt='logo'
+                        className={`${style.img2}`}
                     />
                     <input type="text" placeholder='serach for an educator' className='bg-transparent border-b border-gray-500 ml-4 ' />
                 </div>

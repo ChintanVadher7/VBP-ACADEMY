@@ -2,16 +2,15 @@ import React from 'react'
 import StoryblokClient from 'storyblok-js-client'
 import LandingPage from '@/components/LandingPage';
 import Educators from '@/components/Educators';
+import Calender from '@/components/Calender';
 
 
 const index = (props) => {
-  console.log(props.story);
-  const data = props.story.map((res) => res)
-  console.log(data);
   return (
     <div>
       <LandingPage data={props.story[4]} />
       <Educators data={props.story[2]} />
+      <Calender/>
     </div>
   )
 }

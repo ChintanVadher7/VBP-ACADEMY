@@ -1,0 +1,3 @@
+.svg {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(97%) saturate(13%) hue-rotate(102deg) brightness(96%) contrast(80%) !important   ;
+}

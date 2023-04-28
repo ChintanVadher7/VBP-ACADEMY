@@ -1,0 +1,46 @@
+
+.fc-theme-standard th {
+    color: #000000;
+    letter-spacing: 3px;
+    border: none !important;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  
+  .fc-h-event {
+    border: none !important;
+    background-color: transparent !important;
+  }
+  
+  .fc-scrollgrid {
+    border: none !important
+  }
+  
+  .fc-button {
+    background-color: transparent !important;
+    color: black !important;
+    border: none !important;
+  }
+  
+  .fc-header-toolbar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+  
+  .fc-toolbar-title {
+    text-transform: uppercase;
+    font-size: 20px !important;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin: 0 15px !important;
+  }
+
+
+.spacing{
+  letter-spacing: 5px;
+}
+
+.filter{
+  filter: invert(97%) sepia(18%) saturate(5122%) hue-rotate(293deg) brightness(124%) contrast(70%);
+}

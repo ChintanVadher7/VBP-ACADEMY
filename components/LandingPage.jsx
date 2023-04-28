@@ -5,13 +5,14 @@ const LandingPage = ({ data }) => {
   return (
     <div className='relative'>
       <div className='relative'>
-        <div div >
+        <div>
           <Image
             src={data.content.bg_img1.filename}
             alt="My Image"
             height={100}
             width={100}
             layout="responsive"
+            className={`${style.img}`}
           />
         </div>
         <div className='absolute top-52 left-60 items-center flex flex-col'>
@@ -25,7 +26,7 @@ const LandingPage = ({ data }) => {
           {
             data.content.subdata.map((data) => {
               return (
-                <div key={data.id} className='flex flex-col items-center mx-16 px-5'>
+                <div key={data.id} className='flex flex-col items-center mx-16 px-5 dars' >
                   <Image
                     src={data.logo.filename}
                     height={50}
