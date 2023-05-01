@@ -44,6 +44,7 @@ const Calender = () => {
                 version: 'published',
                 starts_with: 'events/',
             })
+
             const value = data.data.stories
             const formattedData = value.map(event => ({
                 title: event.content.educator,
@@ -51,21 +52,16 @@ const Calender = () => {
                 allDay: true
             }));
             setEvents(formattedData);
+            
+            // upcomg event
             const now = new Date();
             const newDates = data.data.stories.filter(res => new Date(res.content.date) > now)
             const newsortedEvents = newDates.sort((a, b) => new Date(a.content.date) - new Date(b.content.date));
             const newEvent = newsortedEvents[0];
             setUpcomigEvent(newEvent)
-            console.log(upcomigEvent);
         }
         fetch()
     }, [])
-    console.log(upcomigEvent)
-
-    // console.log(upcomigEvent)
-    //identify which event will heppen soon
-
-
     return (
         <div className='bg-white text-black' >
             <div className='flex flex-col items-center mb-14 pt-5'>
