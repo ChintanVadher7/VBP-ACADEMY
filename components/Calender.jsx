@@ -17,7 +17,6 @@ const Calender = () => {
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
-
     const eventContent = (eventInfo) => {
         return (
             <div className='bg-black flex text-white rounded-e-full items-center'>
@@ -32,7 +31,6 @@ const Calender = () => {
             </div>
         );
     };
-
 
     useEffect(() => {
         const fetch = async () => {
@@ -52,7 +50,7 @@ const Calender = () => {
                 allDay: true
             }));
             setEvents(formattedData);
-            
+
             // upcomg event
             const now = new Date();
             const newDates = data.data.stories.filter(res => new Date(res.content.date) > now)

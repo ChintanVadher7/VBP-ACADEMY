@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import style from '../styles/educators.module.css'
 const Educators = ({ data }) => {
+    const [hoveredIndex, setHoveredIndex] = useState(null)
+
+    const handleImageHover = (index) => {
+      setHoveredIndex(index)
+    }
     return (
         <div className={`${style.bg} flex flex-col `}>
             <div className='flex justify-evenly p-10'>
@@ -20,17 +25,19 @@ const Educators = ({ data }) => {
             </div>
             <div className='flex flex-wrap justify-center'>
                 {
-                    data.content.educatorList.map((res) => {
+                    data.content.educatorList.map((res,index) => {
                         const slug = res.name.toLowerCase().replace(/\s+/g, '-').slice(0);
                         return (
                             <div key={res.id} className='m-10'>
                                 <Image
                                     className={style.img}
-                                    src={res.img.filename}
+                                    src={hoveredIndex === index ? res.img2.filename : res.img.filename}
                                     width={1000}
                                     height={400}
                                     alt='imgs'
                                     priority={true}
+                                    onMouseEnter={() => handleImageHover(index)}
+                                    onMouseLeave={() => handleImageHover(null)}
                                 />
                                 <h1 className='text-black font-semibold tracking-widest my-2'>{res.name}</h1>
                                 <span className='text-gray-600 tracking-widest'>{res.desc}</span> <br />

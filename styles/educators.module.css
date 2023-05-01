@@ -5,6 +5,7 @@
 .img {
     height: 350px;
     width: 300px;
+    transition: all 2s ease;
 }
 
 .img2 {
