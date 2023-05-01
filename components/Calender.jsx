@@ -7,14 +7,17 @@ import interactionPlugin from '@fullcalendar/interaction';
 import location from '../public/Icon_Location.svg'
 import style from '../styles/calender.module.css'
 import StoryblokClient from 'storyblok-js-client'
-
+import CanederIcon from '../public/Icon_Calendar.svg'
+import subject from '../public/Icon_Subject.svg'
+import moment from 'moment/moment'
 const Calender = () => {
     const [events, setEvents] = useState([]);
-
+    const [upcomigEvent, setUpcomigEvent] = useState()
     const [selectedOption, setSelectedOption] = useState('option2');
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
+
     const eventContent = (eventInfo) => {
         return (
             <div className='bg-black flex text-white rounded-e-full items-center'>
@@ -29,6 +32,7 @@ const Calender = () => {
             </div>
         );
     };
+
 
     useEffect(() => {
         const fetch = async () => {
@@ -47,10 +51,19 @@ const Calender = () => {
                 allDay: true
             }));
             setEvents(formattedData);
+            const now = new Date();
+            const newDates = data.data.stories.filter(res => new Date(res.content.date) > now)
+            const newsortedEvents = newDates.sort((a, b) => new Date(a.content.date) - new Date(b.content.date));
+            const newEvent = newsortedEvents[0];
+            setUpcomigEvent(newEvent)
+            console.log(upcomigEvent);
         }
         fetch()
     }, [])
+    console.log(upcomigEvent)
 
+    // console.log(upcomigEvent)
+    //identify which event will heppen soon
 
 
     return (
@@ -111,7 +124,7 @@ const Calender = () => {
                     backgroundColor="red"
                     themeSystem='bootstrap5'
                     events={events}
-                    dayCellDidMount={(info) => { 
+                    dayCellDidMount={(info) => {
                         const cell = info.el;
                         cell.style.borderColor = "white";
                         cell.style.backgroundColor = "#F5F5F5";
@@ -125,12 +138,59 @@ const Calender = () => {
                         right: 'next'
                     }}
                 />
-                <div>
-                    <div>
-                        <h1>THE NEXT VBP ACADEMY COURSE</h1>
+                <div className='flex flex-col justify-center items-center mb-20'>
+                    <div className='m-10'>
+                        <h1 className='font-bold text-2xl tracking-widest'>THE NEXT VBP ACADEMY COURSE</h1>
                     </div>
-                    <div>
+                    <div className='flex '>
                         <div>
+                            <div className='flex '>
+                                <div className='flex text-sm mr-4'>
+                                    <Image
+                                        src={CanederIcon}
+                                        height={20}
+                                        width={20}
+                                        alt=''
+                                        className='m-2'
+                                    />
+                                    <span className='my-2'>{upcomigEvent !== undefined ? moment(upcomigEvent.content.date).format("MMM Do YYYY") : ''}</span>
+                                </div>
+                                <div className='flex text-sm'>
+                                    <Image
+                                        src={location}
+                                        height={20}
+                                        width={20}
+                                        alt=''
+                                        className='m-2'
+                                    />
+                                    <span className='my-2'>{upcomigEvent !== undefined ? upcomigEvent.content.locationText : ''}</span>
+                                </div>
+                            </div>
+                            <div className='flex text-sm'>
+                                <Image
+                                    src={svg}
+                                    height={20}
+                                    width={20}
+                                    alt=''
+                                    className='m-2'
+                                />
+                                <span className='my-2 '>Educator: </span>
+                                <span className='my-2 ml-3 underline'>{upcomigEvent !== undefined ? upcomigEvent.content.educator : ''}</span>
+                            </div>
+                            <div className='flex text-sm'>
+                                <Image
+                                    src={subject}
+                                    height={20}
+                                    width={20}
+                                    alt=''
+                                    className='m-2'
+                                />
+                                <p className='my-2'>{upcomigEvent !== undefined ? upcomigEvent.content.subjectDesc : ''}</p>
+                            </div>
+                        </div>
+                        <div className='flex flex-col ml-10'>
+                            <button className={`${style.btnbgColor} p-2 font-bold tracking-widest w-64 m-2`}>JOIN THIS COURSE</button>
+                            <button className=' p-2 font-bold tracking-widest border-black border w-64 m-2'>MORE INFO</button>
                         </div>
                     </div>
                 </div>

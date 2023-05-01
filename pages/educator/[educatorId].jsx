@@ -6,6 +6,7 @@ import React from 'react'
 import StoryblokClient from 'storyblok-js-client'
 import style from '../../styles/educator.module.css'
 import moment from 'moment/moment'
+
 const Educator = (props) => {
     const data = props.story
     const string = data.content.title.split(" ")[0].charAt(0).toUpperCase() + data.content.title.split(" ")[0].slice(1).toLowerCase();
