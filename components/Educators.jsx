@@ -10,7 +10,7 @@ const Educators = ({ data }) => {
     }
     return (
         <div className={`${style.bg} flex flex-col `}>
-            <div className='flex justify-evenly p-10'>
+            <div className='flex justify-evenly p-10 flex-wrap'>
                 <h1 className='text-black font-bold tracking-widest ml-60 text-2xl'>{data.content.title}</h1>
                 <div className='flex'>
                     <Image

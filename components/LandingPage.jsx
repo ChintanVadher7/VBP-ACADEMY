@@ -22,11 +22,11 @@ const LandingPage = ({ data }) => {
       </div>
       <div className='bg-white flex justify-center flex-col items-center '>
         <h1 className='text-black font-semibold tracking-widest text-xl m-8'>{data.content.title2}</h1>
-        <div className='flex m-4 mb-10'>
+        <div className='flex m-4 mb-10 flex-wrap '>
           {
             data.content.subdata.map((data) => {
               return (
-                <div key={data.id} className='flex flex-col items-center mx-16 px-5 dars' >
+                <div key={data.id} className='flex flex-col items-center mx-16 px-5 dars ' >
                   <Image
                     src={data.logo.filename}
                     height={50}
