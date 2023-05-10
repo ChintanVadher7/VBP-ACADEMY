@@ -1,4 +1,17 @@
-.img {
-    height: auto;
-    width: auto;
+/* .img {
+    height: 40px;
+    width: 30px;
+} */
+
+.logo{
+    height: 50px;
+    width: 40px;
+}
+@media only screen and (max-width: 640px) {
+    .img {
+        margin: 15px;
+        width: 30px;
+        height: 100%;
+        object-fit: cover;
+    }
 }

@@ -13,6 +13,7 @@
     "@fullcalendar/daygrid": "^6.1.6",
     "@fullcalendar/interaction": "^6.1.6",
     "@fullcalendar/react": "^6.1.6",
+    "@material-tailwind/react": "^1.4.2",
     "@storyblok/react": "^2.0.17",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",

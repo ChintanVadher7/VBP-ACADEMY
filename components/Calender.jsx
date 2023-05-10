@@ -61,11 +61,11 @@ const Calender = () => {
         fetch()
     }, [])
     return (
-        <div className='bg-white text-black' >
-            <div className='flex flex-col items-center mb-14 pt-5'>
-                <h1 className={`font-bold text-xl m-10 ${style.spacing}`}>ALL COURSES</h1>
-                <div className='flex'>
-                    <div className='flex mx-3'>
+        <div className='bg-white text-black '>
+            <div className='flex flex-col items-center mb-14  pt-5'>
+                <h1 className={`font-bold text-xl sm:m-10 m-3 ${style.spacing}`}>ALL COURSES</h1>
+                <div className='flex flex-wrap items-center justify-center '>
+                    <div className='flex mx-3 m-2 sm:m-0 '>
                         <Image
                             src={location}
                             height={30}
@@ -73,7 +73,7 @@ const Calender = () => {
                             alt='icon'
                             className={`m-2 ${style.filter}`}
                         />
-                        <select className='text-black border border-black px-2' value={selectedOption} onChange={handleSelectChange}>
+                        <select className='text-black border border-black sm:px-2 px-10 text-center' value={selectedOption} onChange={handleSelectChange}>
                             <option value="" disabled selected>
                                 Filter by Location
                             </option>
@@ -90,7 +90,7 @@ const Calender = () => {
                             alt='icon'
                             className={`m-2 ${style.filter}`}
                         />
-                        <select className='text-black border border-black px-2' value={selectedOption} onChange={handleSelectChange}>
+                        <select className='text-black border border-black sm:px-2 px-10 text-center' value={selectedOption} onChange={handleSelectChange}>
                             <option value="" disabled selected>
                                 Filter by Educator
                             </option>
@@ -132,14 +132,14 @@ const Calender = () => {
                         right: 'next'
                     }}
                 />
-                <div className='flex flex-col justify-center items-center mb-20'>
-                    <div className='m-10'>
+                <div className='flex flex-col justify-center items-center mb-20 '>
+                    <div className='m-10 block text-center'>
                         <h1 className='font-bold text-2xl tracking-widest'>THE NEXT VBP ACADEMY COURSE</h1>
                     </div>
-                    <div className='flex '>
+                    <div className='flex-wrap flex justify-center text-lg flex-col sm:flex-row'>
                         <div>
-                            <div className='flex '>
-                                <div className='flex text-sm mr-4'>
+                            <div className='sm:flex '>
+                                <div className='flex mr-4 text-lg font-semibold sm:font-normal sm:text-sm'>
                                     <Image
                                         src={CanederIcon}
                                         height={20}
@@ -149,7 +149,7 @@ const Calender = () => {
                                     />
                                     <span className='my-2'>{upcomigEvent !== undefined ? moment(upcomigEvent.content.date).format("MMM Do YYYY") : ''}</span>
                                 </div>
-                                <div className='flex text-sm'>
+                                <div className='flex text-lg font-semibold sm:font-normal sm:text-sm'>
                                     <Image
                                         src={location}
                                         height={20}
@@ -160,7 +160,7 @@ const Calender = () => {
                                     <span className='my-2'>{upcomigEvent !== undefined ? upcomigEvent.content.locationText : ''}</span>
                                 </div>
                             </div>
-                            <div className='flex text-sm'>
+                            <div className='flex text-lg font-semibold sm:font-normal sm:text-sm'>
                                 <Image
                                     src={svg}
                                     height={20}
@@ -171,7 +171,7 @@ const Calender = () => {
                                 <span className='my-2 '>Educator: </span>
                                 <span className='my-2 ml-3 underline'>{upcomigEvent !== undefined ? upcomigEvent.content.educator : ''}</span>
                             </div>
-                            <div className='flex text-sm'>
+                            <div className='flex text-lg font-semibold sm:font-normal sm:text-sm'>
                                 <Image
                                     src={subject}
                                     height={20}
@@ -182,7 +182,7 @@ const Calender = () => {
                                 <p className='my-2'>{upcomigEvent !== undefined ? upcomigEvent.content.subjectDesc : ''}</p>
                             </div>
                         </div>
-                        <div className='flex flex-col ml-10'>
+                        <div className='flex flex-col mt-10  sm:mt-0 sm:ml-10'>
                             <button className={`${style.btnbgColor} p-2 font-bold tracking-widest w-64 m-2`}>JOIN THIS COURSE</button>
                             <button className=' p-2 font-bold tracking-widest border-black border w-64 m-2'>MORE INFO</button>
                         </div>

@@ -12,3 +12,10 @@
     height: auto;
     width: auto;
 }
+
+@media only screen and (max-width: 640px) {
+    .img {
+        object-fit: cover;
+        height: 250px;
+    }
+}
